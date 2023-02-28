@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html class='ayu', lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet"> 
+	<link rel="stylesheet" href="./styles.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лабораторная работа №8</title>
+</head>
+<body>
+    <div id="body-container">
+        <nav id="sidebar" class="sidebar">
+            <header class="sidebar-header" onclick="location.href='../index.html';">Лабораторные работы</header>
+            <div class="sidebar-scrollbox">
+                <ul>
+                    <li onclick="location.href='../lab07/index.html';">Лабораторная работа 7</li>
+                    <li onclick="location.href='../lab08/index.html';">Лабораторная работа 8</li>
+                    <li onclick="location.href='../lab09/index.html';">Лабораторная работа 9</li>
+                    <li onclick="location.href='../lab10_1/index.html';">Лабораторная работа 10.1</li>
+                    <li onclick="location.href='../lab13_1/index.html';">Лабораторная работа 13.1</li>
+                    <li onclick="location.href='../lab13_2/index.html';">Лабораторная работа 13.2</li>
+                </ul>            
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+        <div class="page">
+            <div id="content" class="content">
+                <main>
+                    <h1 class="mainblock">Лабораторная работа №8</h1>
+                    <h2 class="mainblock">Разработка страниц с сегментированной графикой, анимированной графикой и мультимедиа.</h2>
+                    <div class="task mainblock">
+                        <h3>Задание</h3>
+                        <ol>
+                            <li>Добавить на одну из страниц карту изображений с несколькими ссылками, используя теги <code>&lt;map&gt;</code> и <code>&lt;area&gt;</code>.</li>
+                            <li>Добавить на одну из страниц карту изображений, содержащую области, показанные в задании в п. 3.1 (номер варианта определить по журналу).</li>
+                            <li>Реализовать дубликат карты изображения (созданной в рамках п.1) с применением CSS и без применения тегов map и area.</li>
+                            <li>Разработать и включить на одну из созданных ранее страниц gif-анимацию.</li>
+                            <li>Включить на страницу звуковой файл.</li>
+                            <li>Включить на страницу видеоролик.</li>
+                        </ol>
+                    </div>
+                    <div class="realization mainblock">
+                        <div class="itemscontainer">
+                            <div class="taskitemcontainer">
+                                <h3>Задание 1-2.</h3>
+                                <h4>Вариант 2.</h4>
+                                <div class="task1">
+                                    <div class="task1itemcontainer">
+                                        <div class="task1item">
+                                            <map name="maptask1">
+                                                <!-- <area class="area-lower" href="../index.html" shape="rect" coords="0,0,240,240"> -->
+                                                <area target="" alt="" title="" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" shape="circle" coords="150,150,80">
+                                                <area target="" alt="" title="" href="../index.html" coords="1,0,240,0,241,149,230,149,225,119,208,94,180,76,148,70,116,77,92,95,77,118,69,149,1,148" shape="poly">
+                                                <area target="" alt="" title="" href="../index.html" coords="1,147,70,149,74,171,89,199,120,223,149,230,188,221,214,200,224,179,230,150,241,149,241,239,1,239" shape="poly">
+                                            </map>
+                                            <img src="./task1.svg" usemap="#maptask1" width=360 height=480>
+                                        </div>
+                                        <p>Используя <code>&lt;map&gt;</code> и <code>&lt;area&gt;</code></p>
+                                    </div>
+                                    <div class="task1itemcontainer">
+                                        <div class="task1item">
+                                            <a class="square-back" href="../index.html"></a>
+                                            <a class="circle-front" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"></a>
+                                        </div>
+                                        <p>Только CSS</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="taskitemcontainer">
+                                <h3>GIF-анимация</h3>
+                                <div class="item">
+                                    <img src="https://github.com/MikeChuv/2DWavePDESolver/blob/master/testU1.gif?raw=true" alt="testU1.gif">
+                                </div>
+                            </div>
+                            <div class="taskitemcontainer">
+                                <h3>Аудио</h3>
+                                <div class="item">
+                                    <h4>Поток</h4>
+                                    <audio controls src="http://radiorecord.hostingradio.ru/goa96.aacp"></audio>
+                                    <h4>Файл</h4>
+                                    <audio controls src="./Wilhelm scream.wav"></audio>
+                                </div>
+                            </div>
+                            <div class="taskitemcontainer">
+                                <div class="item">
+                                    <h4>Video</h4>
+                                    <div class="video">
+                                        <video ref="video" muted="" playsinline="" class="videoplayer" id="video" controls="" poster="https://joy1.videvo.net/videvo_files/video/free/2016-12/thumbnails/Code_flythough_loop_01_Videvo_small.jpg">
+                                            <source type="video/mp4" src="https://joy1.videvo.net/videvo_files/video/free/2016-12/large_watermarked/Code_flythough_loop_01_Videvo_preview.mp4">
+                                        </video>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <h4>YouTube</h4>
+                                    <div class="video">
+                                        <iframe src="https://www.youtube.com/embed/RHHUsYnB0d8"></iframe>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
