@@ -1,28 +1,37 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html class='ayu', lang="ru">
 <head>
     <meta charset="UTF-8">
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet"> 
-    <link rel="stylesheet" href="./reset.css">
 	<link rel="stylesheet" href="./styles.css">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Компьютерные сети</title>
 </head>
 <body>
-    <nav id="sidebar" class="sidebar">
-        <header class="sidebar-header">Лабораторные работы</header>
-        <div class="sidebar-scrollbox">
-            <ul>
-                <li><a href="">Лабораторная работа 7</a></li>
-                <li><a href="">Лабораторная работа 8</a></li>
-                <li><a href="">Лабораторная работа 9</a></li>
-                <li><a href="">Лабораторная работа 10.1</a></li>
-                <li><a href="">Лабораторная работа 13.1</a></li>
-                <li><a href="">Лабораторная работа 13.2</a></li>
-            </ul>            
-            <!-- <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div> -->
+    <div id="body-container">
+        <nav id="sidebar" class="sidebar">
+            <header class="sidebar-header" onclick="location.href='./index.html';">Лабораторные работы</header>
+            <div class="sidebar-scrollbox">
+                <ul>
+                    <li onclick="location.href='./lab07/index.html';">Лабораторная работа 7</li>
+                    <li onclick="location.href='./lab08/index.html';">Лабораторная работа 8</li>
+                    <li onclick="location.href='./lab09/index.html';">Лабораторная работа 9</li>
+                    <li onclick="location.href='./lab10_1/index.html';">Лабораторная работа 10.1</li>
+                    <li onclick="location.href='./lab13_1/index.html';">Лабораторная работа 13.1</li>
+                    <li onclick="location.href='./lab13_2/index.html';">Лабораторная работа 13.2</li>
+                </ul>            
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+        <div class="page">
+            <div id="content" class="content">
+                <main>
+                    <h1 class="mainblock">Лабораторные работы по курсу "Компьютерные сети"</h1>
+                    <h2 class="mainblock">Чуворкин Михаил А-13а-19</h2>
+                </main>
+            </div>
         </div>
-    </nav>
+    </div>
 </body>
 </html>
