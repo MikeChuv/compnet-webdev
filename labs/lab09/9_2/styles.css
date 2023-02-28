@@ -1,0 +1,91 @@
+@import '../../variables.css';
+@import '../../styles.css';
+
+
+.sidebar-scrollbox ul li:nth-child(3) {
+    color: var(--sidebar-active);
+}
+
+.wrapper {
+    min-height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+}
+
+.header {
+    background-color: var(--quote-bg);
+    text-align: center;
+    padding: 0.5rem 0;
+    height: fit-content;
+}
+
+.subheader {
+    margin-bottom: 1rem;
+}
+
+
+.menu {
+    display: flex;
+    width: 100%;
+    background-color: var(--sidebar-bg);
+}
+
+.menu-item {
+    float: left;
+    margin: 1rem;
+    font-size: 0.8rem;
+    line-height: 2rem;
+}
+
+.menu-item a {
+    padding: 1rem;
+    border-style: solid;
+    border-color: var(--sidebar-bg);
+    border-radius: 10px;
+    color: var(--sidebar-fg);
+}
+
+.menu-item:hover a {
+    border-style: solid;
+    border-color: var(--theme-popup-border);
+    border-radius: 10px;
+    background-color: var(--theme-popup-bg);
+    color: var(--sidebar-active);
+}
+
+.page {
+    margin: 0;
+}
+
+.maincontent {
+    margin: 2rem;
+}
+
+pre code {
+    padding: 1rem;
+}
+
+:not(pre) > .hljs {
+    display: inline;
+    padding: 0.1em 0.3em;
+    border-radius: 3px;
+}
+
+footer {
+    background-color: var(--sidebar-bg);
+    padding: 0 var(--page-padding);
+    height: fit-content;
+}
+
+footer h2 {
+    padding: 1rem 2rem;
+}
+
+footer p {
+    margin: 0;
+    padding: 1rem 2rem;
+} 
+
+
+
