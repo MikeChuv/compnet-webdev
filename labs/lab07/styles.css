@@ -1,0 +1,41 @@
+@import '../variables.css';
+@import '../styles.css';
+
+
+.sidebar-scrollbox ul li:nth-child(1) {
+    color: var(--sidebar-active);
+}
+
+
+
+.realization h3 {
+    display: block;
+    width: 100%;
+}
+
+.layerscontainer {
+    display: flex;
+}
+
+.layer {
+    float: left;
+    width: 100%;
+    height: 20rem;
+    opacity: 0.5;
+}
+
+.one {
+    background-color: red;
+}
+
+.two {
+    margin-left: -2rem;
+    margin-top: 2rem;
+    z-index: 1;
+    background-color: green;
+}
+
+.three {
+    margin-left: -2rem;
+    background-color: blue;
+}
