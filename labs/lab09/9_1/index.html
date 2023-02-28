@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html class='ayu', lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet"> 
+	<link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="../../highlight.css" disabled="disabled">
+    <link rel="stylesheet" href="../../ayu-highlight.css">
+    <link rel="stylesheet" href="../../tomorrow-night.css" disabled="disabled">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/cpp.min.js"></script> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лабораторная работа №9</title>
+</head>
+<body>
+    <table cellpadding="0" cellspacing="0">
+        <tbody>
+            <tr class="header">
+                <td>
+                    <h2>9.1 Верстка страниц с применением таблиц</h2>
+                    <div class="subheader">Вариант 4</div>
+                </td>
+            </tr>
+            <tr class="menu">
+                <td>
+                    <div class="menu-item">
+                        <a href="../../index.html">На главную</a>
+                    </div>
+                    <div class="menu-item">
+                        <a href="../index.html">Страница ЛР9</a>
+                    </div>
+                    <div class="menu-item">
+                        <a href="../9_2/index.html">Следующая</a>
+                    </div>
+                </td>
+            </tr>
+            <tr class="page">
+                <td>
+                    <div class="maincontent">
+
+<h2 id="Системное-программное-обеспечение-функции-ОС-взаимодействие-программ-на-языках-С-и-С--с-операционной-системой">Системное программное обеспечение, функции ОС, взаимодействие программ на языках С++ и С#  с операционной системой.</h2>
+<p><strong>Системное ПО</strong> - программы для взаимодействия с системным, техническим, аппаратным обеспечением, что подразумевает сильную зависимость таких программ от рабочей среды и аппаратной платформы.</p>
+<p><strong>Функции ОС:</strong></p>
+<pre><code class="hljs">1. Файловая система - организация работы с памятью, иерархическая структура
+2. Система управления памятью - выделение ОЗУ, обращение к фрагментам памяти
+3. Система управления программами - ряд функций, которые управляют программами
+4. Связь с драйверами устройств (обслуживающими программами)
+5. Обработка ошибок -
+6. Служба времени - (позволяет синхронизировать все операции компьютера)
+7. Служба ввода/вывода консоли оператора (клавиатура и монитор)
+</code></pre>
+<p><strong>Взаимодействие программ на языках С++ и С# с операционной системой.</strong></p>
+<p>Все взамодействие происходит через механизм сообщений.</p>
+<h2 id="Шаблон-программы-под-windows-создание-приложения-назначение-программы-winmain-класс-окна-оконная-процедура">Шаблон программы под Windows (создание приложения, назначение программы WinMain, класс окна, оконная процедура).</h2>
+<p><strong>Cоздание приложения</strong></p>
+<p>В Visual Studio есть шаблон стандартного приложения Windows. Там содержится базовый код, характерный для любого приложения.</p>
+<p><strong>Назначение программы WinMain</strong> - точка входа в программу Windows. Может отличаться у производителей ПО для написания программ (Borland, Microsoft), но потом преобразуется к WinMain.</p>
+<p>В Win32 имеет следующий вид:</p>
+<pre><code class="language-cpp hljs"><span class="hljs-comment">// Точка входа в приложение</span>
+<span class="hljs-function"><span class="hljs-keyword">int</span> APIENTRY <span class="hljs-title">wWinMain</span><span class="hljs-params">(
+    _In_ HINSTANCE hInstance,		<span class="hljs-comment">// Дескриптор экземпляра приложения</span>
+    _In_opt_ HINSTANCE hPrevInstance,	<span class="hljs-comment">// Дескриптор предыдущего экземпляра приложения</span>
+    _In_ LPWSTR	lpCmdLine,		<span class="hljs-comment">// Передача командной строки (??) указатель на командную строку, если приложение так запущено</span>
+    _In_ <span class="hljs-keyword">int</span> nCmdShow			<span class="hljs-comment">// Установки для окна (нормальное, на весь экран и тп + CLI?)</span>
+)</span> 
+</span></code></pre>
+<p><strong>Класс окна</strong><br>
+Есть некоторая структура данных, в которой можно заполниоть поля и передать ОС (запись в таблице ОС, где записаны основные св-ва окна данного типа)</p>
+<p><strong>Оконная процедура</strong><br>
+Оконная процедура - функция обработки сообщений. Может иметь любое имя (обычно WndProc) и вызывается операционной системой.</p>
+<pre><code class="language-cpp hljs"><span class="hljs-function">LRESULT CALLBACK <span class="hljs-title">WndProc</span><span class="hljs-params">(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)</span></span>;
+</code></pre>
+<p>Параметры: дескриптор окна <code class="hljs">HWND</code>, код сообщения <code class="hljs">msg</code>, и два параметра.
+Оконная процедура обрабатывает только необходимые (запланированные программистом
+) сообщения, а все остальные обрабатывает оконная процедура по умолчанию (<code class="hljs">DefWindowProc</code>). Весь код, который относится к данному окну, должен быть вставлен в оконную процедуру.</p>
+<h2 id="Основные-возможности-системного-программирования-в-среде-builder-c-Компоненты-вкладки-system-Работа-с-сообщениями">Основные возможности системного программирования в среде Builder C++. Компоненты вкладки System. Работа с сообщениями.</h2>
+<p><strong>Основные возможности:</strong></p>
+<ul>
+<li>Создание форм.</li>
+<li>Форма-проект окна приложения и его на экране рисует сам Borland или ОС по его просьбе</li>
+<li>Форма нужна для проектирования приложения</li>
+<li>Главная функция WinMain находится в Project.cpp</li>
+<li>Создает шаблон программы, в которм есть инициалицация, создание окон и запуск цикла обработки сообщений.</li>
+<li>Можно вызывать функции Windows, так как в классах элементов, являющимися системными объектами, есть поля для дескрипторов этих элементов (например, у Button и Edit есть такое поле, а у Label нет) и их можно передать как параметры в функции Windows (например, <code class="hljs">::SetParent(childHandle, parentHandle) </code>).</li>
+<li>Имеется возможность обрабатывать нажатия на несистемные объекты. Так, можно обработать нажатие на элемент Label (Borland), тогда как элемент Static (Win32) не принимает сообщения и служит только для вывода информации. Обработка таких нажатий производится через координаты места, в которое нажали.</li>
+</ul>
+<p><strong>Компоненты вкладки System.</strong></p>
+<ul>
+<li>Таймер - логическое время. Будет слать программе сообщения равномерно.</li>
+<li>PaintBox - прямоугольник, на котором можно рисовать.</li>
+<li>MediaPlayer</li>
+<li>OLE - интеграция программных приложений.</li>
+</ul>
+<h2 id="Главная-программа-приложения-windows-Основные-функции-Цикл-обработки-сообщений">Главная программа приложения Windows. Основные функции. Цикл обработки сообщений.</h2>
+<p><strong>Главная программа:</strong></p>
+<ol>
+<li>Создает и регистрирует класс окна (<code class="hljs">MyRegisterClass()</code>)</li>
+<li>Создает окно (в <code class="hljs">InitInstance()</code>) - т.е. добавляет в таблицу ОС новую строку.</li>
+<li>Выводит окно на экран (<code class="hljs">ShowWindow()</code>)</li>
+<li>Запускает цикл обработки сообщений</li>
+</ol>
+<p>В Win32 имеет следующий вид:</p>
+<pre><code class="language-cpp hljs"><span class="hljs-comment">// Точка входа в приложение</span>
+<span class="hljs-function"><span class="hljs-keyword">int</span> APIENTRY <span class="hljs-title">wWinMain</span><span class="hljs-params">(
+    _In_ HINSTANCE hInstance,		<span class="hljs-comment">// Дескриптор экземпляра приложения</span>
+    _In_opt_ HINSTANCE hPrevInstance,	<span class="hljs-comment">// Дескриптор предыдущего экземпляра приложения</span>
+    _In_ LPWSTR	lpCmdLine,		<span class="hljs-comment">// Передача командной строки (??) указатель на командную строку, если приложение так запущено</span>
+    _In_ <span class="hljs-keyword">int</span> nCmdShow 			<span class="hljs-comment">// Установки для окна (нормальное, на весь экран и тп + CLI?)</span>
+)</span>
+</span></code></pre>
+<p>В <code class="hljs">WinMain</code> вызываются следующие функции:</p>
+<pre><code class="language-cpp hljs"><span class="hljs-comment">// регистрация класса окна (стили, точка входа в оконную процедуру (WndProc), дескриптор экземпляра приложения, иконки, курсоры, меню)</span>
+<span class="hljs-function">ATOM <span class="hljs-title">MyRegisterClass</span><span class="hljs-params">(HINSTANCE hInstance)</span></span>{}
+</code></pre>
+<pre><code class="language-cpp hljs"><span class="hljs-comment">// инициализация приложения (создание основного окна, дочерних окон, показ окна, обновление окна)</span>
+<span class="hljs-function">BOOL <span class="hljs-title">InitInstance</span><span class="hljs-params">(HINSTANCE hInstance, <span class="hljs-keyword">int</span> nCmdShow)</span></span>{}
+</code></pre>
+<p>И запускается цикл обработки сообщений:</p>
+<pre><code class="language-cpp hljs">MSG msg;
+
+<span class="hljs-comment">// Цикл основного сообщения:</span>
+<span class="hljs-keyword">while</span> (GetMessage(&amp;msg, <span class="hljs-literal">nullptr</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>))
+{
+    <span class="hljs-keyword">if</span> (!TranslateAccelerator(msg.hwnd, hAccelTable, &amp;msg))
+    {
+        TranslateMessage(&amp;msg); <span class="hljs-comment">// перевод сообщений клавиш в символьные сообщения</span>
+        DispatchMessage(&amp;msg);	<span class="hljs-comment">// распределение сообщений по оконным процедурам</span>
+    }
+}
+</code></pre>
+                    </div>
+                </td>
+            </tr>
+            <tr class="footer">
+                <td>
+                    <h2>Подвал</h2>
+                    <p>Какие-то ссылки ))0)</p>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
