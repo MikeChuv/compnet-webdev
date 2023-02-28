@@ -1,0 +1,7 @@
+@import '../variables.css';
+@import '../styles.css';
+
+
+.sidebar-scrollbox ul li:nth-child(6) {
+    color: var(--sidebar-active);
+}
