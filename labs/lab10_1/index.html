@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html class='ayu', lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap" rel="stylesheet"> 
+	<link rel="stylesheet" href="./styles.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лабораторная работа №10.1</title>
+</head>
+<body onload="onLoadHandler()">
+    <div id="body-container">
+        <nav id="sidebar" class="sidebar">
+            <header class="sidebar-header" onclick="location.href='../index.html';">Лабораторные работы</header>
+            <div class="sidebar-scrollbox">
+                <ul>
+                    <li onclick="location.href='../lab07/index.html';">Лабораторная работа 7</li>
+                    <li onclick="location.href='../lab08/index.html';">Лабораторная работа 8</li>
+                    <li onclick="location.href='../lab09/index.html';">Лабораторная работа 9</li>
+                    <li onclick="location.href='../lab10_1/index.html';">Лабораторная работа 10.1</li>
+                    <li onclick="location.href='../lab13_1/index.html';">Лабораторная работа 13.1</li>
+                    <li onclick="location.href='../lab13_2/index.html';">Лабораторная работа 13.2</li>
+                </ul>            
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+        <div class="page">
+            <div id="content" class="content">
+                <main>
+                    <h1 class="mainblock">Лабораторная работа №10.1</h1>
+                    <h2 class="mainblock">Разработка страниц с динамическим содержимым: использование языка выполняемых сценариев JavaScript</h2>
+                    <div class="task mainblock">
+                        <h3>Задание</h3>
+                        <ol>
+                            <li>Дополнить одну из разработанных ранее страниц Java-скриптом, перехватывающим событие <code>onload</code> и показывающим сообщение с приветствием.</li>
+                            <li>Добавить на одну из страниц часы (цифровые).</li>
+                            <li>Добавить на одну из страниц статический календарь, отображающий текущую дату.</li>
+                            <li>Добавить страницу с клиентским скриптом, задающим пользователю ряд вопросов и генерирующим на основе его ответов страницу в новом окне.</li>
+                            <li>Добавить на страницу «плавающий» (от границы к границе) рекламный слой.</li>
+                        </ol>
+                    </div>
+                    <div class="realization mainblock">
+                        <div class="itemscontainer">
+                            <div class="taskitemcontainer">
+                                <h3>2. Часы</h3>
+                                <div class="item">
+                                    <div id="clock" class="clock">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="taskitemcontainer">
+                                <h3>3. Календарь</h3>
+                                <div class="item">
+                                    <div id="calendar" class="calendar">
+                                        <p class="month-and-year" id="monthAndYear"></p>
+                                        <table class="calendar-table" id="calendar">
+                                            <thead>
+                                            <tr>
+                                                <th>Пн</th>
+                                                <th>Вт</th>
+                                                <th>Ср</th>
+                                                <th>Чт</th>
+                                                <th>Пт</th>
+                                                <th>Сб</th>
+                                                <th>Вс</th>
+                                            </tr>
+                                            </thead>
+
+                                            <tbody id="calendar-body">
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="./script.js"></script>
+</html>

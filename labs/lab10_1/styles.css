@@ -1,0 +1,78 @@
+@import '../variables.css';
+@import '../styles.css';
+
+
+.sidebar-scrollbox ul li:nth-child(4) {
+    color: var(--sidebar-active);
+}
+
+.taskitemcontainer {
+    display: inline-block;
+    width: 100%;
+    margin: 1rem 0rem;
+    border-radius: 10px;
+    background-color: var(--theme-popup-border);
+}
+
+.taskitemcontainer h3 {
+    padding: 0rem 2rem;
+    margin: 1rem 0rem;
+}
+
+.taskitemcontainer h4 {
+    padding: 0rem 3rem;
+    margin: 1rem 0rem;
+}
+
+.item {
+    margin: 1rem auto;
+    padding: 0rem 1rem;
+    border-radius: 10px;
+    background-color: var(--theme-popup-border);
+}
+
+.clock {
+    font-size: 3rem;
+    font-family: 'Ubuntu Mono', monospace;
+    letter-spacing: 1rem;
+    text-align: center;
+}
+
+.calendar {
+    padding: 1rem;
+    background-color: var(--quote-bg);
+    border-radius: 10px;
+}
+
+.month-and-year {
+    margin: 1rem 0rem;
+}
+
+.calendar-table {
+    table-layout: fixed;
+    border-collapse: collapse;
+    box-sizing: border-box;
+    width: 100%;
+    background-color: var(--quote-border);
+    border-color: var(--table-border-color);
+}
+
+.calendar-table th {
+    background-color: var(--table-header-bg);
+    border: 3px;
+    border-style: solid;
+    text-align: center;
+}
+
+.calendar-table td {
+    border: 3px;
+    border-style: solid;
+    text-align: center;
+}
+
+.bg-info {
+    background-color: var(--table-alternate-bg);
+    border: 3px;
+    border-style: solid;
+    text-align: center;
+}
