@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html class='ayu' lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet"> 
+	<link rel="stylesheet" href="./styles.css">
+	<link rel="stylesheet" href="./part.css">
+    <link rel="stylesheet" href="../../highlight.css" disabled="disabled">
+    <link rel="stylesheet" href="../../ayu-highlight.css">
+    <link rel="stylesheet" href="../../tomorrow-night.css" disabled="disabled">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/cpp.min.js"></script> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<h2 id="Шаблон-программы-под-windows-создание-приложения-назначение-программы-winmain-класс-окна-оконная-процедура">Шаблон программы под Windows (создание приложения, назначение программы WinMain, класс окна, оконная процедура).</h2>
+<p><strong>Cоздание приложения</strong></p>
+<p>В Visual Studio есть шаблон стандартного приложения Windows. Там содержится базовый код, характерный для любого приложения.</p>
+<p><strong>Назначение программы WinMain</strong> - точка входа в программу Windows. Может отличаться у производителей ПО для написания программ (Borland, Microsoft), но потом преобразуется к WinMain.</p>
+<p>В Win32 имеет следующий вид:</p>
+<pre><code class="language-cpp hljs"><span class="hljs-comment">// Точка входа в приложение</span>
+<span class="hljs-function"><span class="hljs-keyword">int</span> APIENTRY <span class="hljs-title">wWinMain</span><span class="hljs-params">(
+    _In_ HINSTANCE hInstance,		<span class="hljs-comment">// Дескриптор экземпляра приложения</span>
+    _In_opt_ HINSTANCE hPrevInstance,	<span class="hljs-comment">// Дескриптор предыдущего экземпляра приложения</span>
+    _In_ LPWSTR	lpCmdLine,		<span class="hljs-comment">// Передача командной строки (??) указатель на командную строку, если приложение так запущено</span>
+    _In_ <span class="hljs-keyword">int</span> nCmdShow			<span class="hljs-comment">// Установки для окна (нормальное, на весь экран и тп + CLI?)</span>
+)</span> 
+</span></code></pre>
+<p><strong>Класс окна</strong><br>
+Есть некоторая структура данных, в которой можно заполниоть поля и передать ОС (запись в таблице ОС, где записаны основные св-ва окна данного типа)</p>
+<p><strong>Оконная процедура</strong><br>
+Оконная процедура - функция обработки сообщений. Может иметь любое имя (обычно WndProc) и вызывается операционной системой.</p>
+<pre><code class="language-cpp hljs"><span class="hljs-function">LRESULT CALLBACK <span class="hljs-title">WndProc</span><span class="hljs-params">(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)</span></span>;
+</code></pre>
+<p>Параметры: дескриптор окна <code class="hljs">HWND</code>, код сообщения <code class="hljs">msg</code>, и два параметра.
+Оконная процедура обрабатывает только необходимые (запланированные программистом
+) сообщения, а все остальные обрабатывает оконная процедура по умолчанию (<code class="hljs">DefWindowProc</code>). Весь код, который относится к данному окну, должен быть вставлен в оконную процедуру.</p>
+<div class="frame-nav">
+    <div class="frame-nav-item">
+        <a href="./part1.html">Назад</a>
+    </div>
+    <div class="frame-nav-item">
+        <a href="./part3.html">Дальше</a>
+    </div>
+</div>
+</body>
+</html>

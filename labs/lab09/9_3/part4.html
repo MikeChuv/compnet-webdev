@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html class='ayu' lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet"> 
+	<link rel="stylesheet" href="./styles.css">
+	<link rel="stylesheet" href="./part.css">
+    <link rel="stylesheet" href="../../highlight.css" disabled="disabled">
+    <link rel="stylesheet" href="../../ayu-highlight.css">
+    <link rel="stylesheet" href="../../tomorrow-night.css" disabled="disabled">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/cpp.min.js"></script> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<h2 id="Главная-программа-приложения-windows-Основные-функции-Цикл-обработки-сообщений">Главная программа приложения Windows. Основные функции. Цикл обработки сообщений.</h2>
+<p><strong>Главная программа:</strong></p>
+<ol>
+<li>Создает и регистрирует класс окна (<code class="hljs">MyRegisterClass()</code>)</li>
+<li>Создает окно (в <code class="hljs">InitInstance()</code>) - т.е. добавляет в таблицу ОС новую строку.</li>
+<li>Выводит окно на экран (<code class="hljs">ShowWindow()</code>)</li>
+<li>Запускает цикл обработки сообщений</li>
+</ol>
+<p>В Win32 имеет следующий вид:</p>
+<pre><code class="language-cpp hljs"><span class="hljs-comment">// Точка входа в приложение</span>
+<span class="hljs-function"><span class="hljs-keyword">int</span> APIENTRY <span class="hljs-title">wWinMain</span><span class="hljs-params">(
+    _In_ HINSTANCE hInstance,		<span class="hljs-comment">// Дескриптор экземпляра приложения</span>
+    _In_opt_ HINSTANCE hPrevInstance,	<span class="hljs-comment">// Дескриптор предыдущего экземпляра приложения</span>
+    _In_ LPWSTR	lpCmdLine,		<span class="hljs-comment">// Передача командной строки (??) указатель на командную строку, если приложение так запущено</span>
+    _In_ <span class="hljs-keyword">int</span> nCmdShow 			<span class="hljs-comment">// Установки для окна (нормальное, на весь экран и тп + CLI?)</span>
+)</span>
+</span></code></pre>
+<p>В <code class="hljs">WinMain</code> вызываются следующие функции:</p>
+<pre><code class="language-cpp hljs"><span class="hljs-comment">// регистрация класса окна (стили, точка входа в оконную процедуру (WndProc), дескриптор экземпляра приложения, иконки, курсоры, меню)</span>
+<span class="hljs-function">ATOM <span class="hljs-title">MyRegisterClass</span><span class="hljs-params">(HINSTANCE hInstance)</span></span>{}
+</code></pre>
+<pre><code class="language-cpp hljs"><span class="hljs-comment">// инициализация приложения (создание основного окна, дочерних окон, показ окна, обновление окна)</span>
+<span class="hljs-function">BOOL <span class="hljs-title">InitInstance</span><span class="hljs-params">(HINSTANCE hInstance, <span class="hljs-keyword">int</span> nCmdShow)</span></span>{}
+</code></pre>
+<p>И запускается цикл обработки сообщений:</p>
+<pre><code class="language-cpp hljs">MSG msg;
+
+<span class="hljs-comment">// Цикл основного сообщения:</span>
+<span class="hljs-keyword">while</span> (GetMessage(&amp;msg, <span class="hljs-literal">nullptr</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>))
+{
+    <span class="hljs-keyword">if</span> (!TranslateAccelerator(msg.hwnd, hAccelTable, &amp;msg))
+    {
+        TranslateMessage(&amp;msg); <span class="hljs-comment">// перевод сообщений клавиш в символьные сообщения</span>
+        DispatchMessage(&amp;msg);	<span class="hljs-comment">// распределение сообщений по оконным процедурам</span>
+    }
+}
+</code></pre>
+<div class="frame-nav">
+    <div class="frame-nav-item">
+        <a href="./part3.html">Назад</a>
+    </div>
+</div>
+</body>
+</html>

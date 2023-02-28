@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html class='ayu' lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet"> 
+	<link rel="stylesheet" href="./styles.css">
+	<link rel="stylesheet" href="./part.css">
+    <link rel="stylesheet" href="../../highlight.css" disabled="disabled">
+    <link rel="stylesheet" href="../../ayu-highlight.css">
+    <link rel="stylesheet" href="../../tomorrow-night.css" disabled="disabled">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/cpp.min.js"></script> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<h2 id="Основные-возможности-системного-программирования-в-среде-builder-c-Компоненты-вкладки-system-Работа-с-сообщениями">Основные возможности системного программирования в среде Builder C++. Компоненты вкладки System. Работа с сообщениями.</h2>
+<p><strong>Основные возможности:</strong></p>
+<ul>
+<li>Создание форм.</li>
+<li>Форма-проект окна приложения и его на экране рисует сам Borland или ОС по его просьбе</li>
+<li>Форма нужна для проектирования приложения</li>
+<li>Главная функция WinMain находится в Project.cpp</li>
+<li>Создает шаблон программы, в которм есть инициалицация, создание окон и запуск цикла обработки сообщений.</li>
+<li>Можно вызывать функции Windows, так как в классах элементов, являющимися системными объектами, есть поля для дескрипторов этих элементов (например, у Button и Edit есть такое поле, а у Label нет) и их можно передать как параметры в функции Windows (например, <code class="hljs">::SetParent(childHandle, parentHandle) </code>).</li>
+<li>Имеется возможность обрабатывать нажатия на несистемные объекты. Так, можно обработать нажатие на элемент Label (Borland), тогда как элемент Static (Win32) не принимает сообщения и служит только для вывода информации. Обработка таких нажатий производится через координаты места, в которое нажали.</li>
+</ul>
+<p><strong>Компоненты вкладки System.</strong></p>
+<ul>
+<li>Таймер - логическое время. Будет слать программе сообщения равномерно.</li>
+<li>PaintBox - прямоугольник, на котором можно рисовать.</li>
+<li>MediaPlayer</li>
+<li>OLE - интеграция программных приложений.</li>
+</ul>
+<div class="frame-nav">
+    <div class="frame-nav-item">
+        <a href="./part2.html">Назад</a>
+    </div>
+    <div class="frame-nav-item">
+        <a href="./part4.html">Дальше</a>
+    </div>
+</div>
+</body>
+</html>

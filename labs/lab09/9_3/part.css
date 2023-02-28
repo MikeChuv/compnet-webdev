@@ -1,0 +1,30 @@
+@import '../../variables.css';
+@import '../../styles.css';
+
+body {
+    margin: 2rem;
+}
+
+.frame-nav {
+    margin: 1rem 0;
+    padding: 1rem 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.frame-nav-item a {
+    margin: 1rem 0;
+    padding: 1rem;
+    border-style: solid;
+    border-color: var(--sidebar-bg);
+    border-radius: 10px;
+    color: var(--sidebar-fg);
+}
+
+.frame-nav-item:hover a {
+    border-style: solid;
+    border-color: var(--theme-popup-border);
+    border-radius: 10px;
+    background-color: var(--theme-popup-bg);
+    color: var(--sidebar-active);
+}
