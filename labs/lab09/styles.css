@@ -1,0 +1,29 @@
+@import '../variables.css';
+@import '../styles.css';
+
+
+.sidebar-scrollbox ul li:nth-child(3) {
+    color: var(--sidebar-active);
+}
+
+.realization {
+    display: inline-block;
+}
+
+.realization a {
+    display: block;
+    padding: 1rem;
+    /* margin: 2rem; */
+    border-style: solid;
+    border-color: var(--sidebar-bg);
+    border-radius: 10px;
+    color: var(--sidebar-fg);
+}
+
+.realization:hover a {
+    border-style: solid;
+    border-color: var(--theme-popup-border);
+    border-radius: 10px;
+    background-color: var(--theme-popup-bg);
+    color: var(--sidebar-active);
+}
