@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Лабораторная работа №10.1</title>
 </head>
-<body onload="onLoadHandler()">
+<body>
     <div id="body-container">
         <nav id="sidebar" class="sidebar">
             <header class="sidebar-header" onclick="location.href='../index.html';">Лабораторные работы</header>
@@ -41,64 +41,11 @@
                         </ol>
                     </div>
                     <div class="realization mainblock">
-                        <div class="itemscontainer">
-                            <div class="taskitemcontainer">
-                                <h3>2. Часы</h3>
-                                <div class="item">
-                                    <div id="clock" class="clock">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="taskitemcontainer">
-                                <h3>3. Календарь</h3>
-                                <div class="item">
-                                    <div id="calendar" class="calendar">
-                                        <p class="month-and-year" id="monthAndYear"></p>
-                                        <table class="calendar-table" id="calendar">
-                                            <thead>
-                                            <tr>
-                                                <th>Пн</th>
-                                                <th>Вт</th>
-                                                <th>Ср</th>
-                                                <th>Чт</th>
-                                                <th>Пт</th>
-                                                <th>Сб</th>
-                                                <th>Вс</th>
-                                            </tr>
-                                            </thead>
 
-                                            <tbody id="calendar-body">
-
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="taskitemcontainer">
-                                <h3>4. Индекс массы тела</h3>
-                                <div class="item">
-                                    <form class="form-wrap" id="BMI-form" name="BMI" target="formresult">
-                                        <label for="name">Алгоритм: </label>
-                                        <select name="algo">
-                                            <option value="BMI">Индекс массы тела</option>
-                                            <option value="BrIndex">Индекс Брейтмана</option>
-                                            <option value="NoorIndex">Индекс Ноордена</option>
-                                            <option value="TatIndex">Индекс Татоня</option>
-                                        </select>
-                                        <label for="height">Рост: </label>
-                                        <input type="number" name="height" id="height" min="0" max="300" required>
-                                        <label for="mass">Масса тела: </label>
-                                        <input type="number" name="mass" id="mass" min="0" max="300" required>
-                                        <input class="form-submit" type="submit" value="Результат">
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </main>
             </div>
         </div>
     </div>
 </body>
-<script src="./script.js"></script>
 </html>

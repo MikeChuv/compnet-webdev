@@ -6,3 +6,71 @@
 .sidebar-scrollbox ul li:nth-child(5) {
     color: var(--sidebar-active);
 }
+
+
+.taskitemcontainer {
+    display: inline-block;
+    width: 100%;
+    margin: 1rem 0rem;
+    border-radius: 10px;
+    background-color: var(--theme-popup-border);
+}
+
+.taskitemcontainer h3 {
+    padding: 0rem 2rem;
+    margin: 1rem 0rem;
+}
+
+.taskitemcontainer h4 {
+    padding: 0rem 3rem;
+    margin: 1rem 0rem;
+}
+
+.item {
+    margin: 1rem auto;
+    padding: 0rem 1rem;
+    border-radius: 10px;
+    background-color: var(--theme-popup-border);
+}
+
+
+#frame {
+    max-width:620px;
+    width:100%;
+    border:1px solid #ccc;
+    background:#eee;
+    padding:10px;
+} 
+
+#quiz-content {
+    margin:0 40px 10px;
+} 
+
+input[type=radio] { margin:0 10px 5px -22px; } 
+
+label{margin:0 0 5px;}
+
+#score p { 
+    font-size:0.5em; 
+    font-style:italic; 
+    float:right;
+    margin:5px 5px 0 0;
+}
+
+#score:after {
+    content:".";
+    display:block;
+    clear:both;
+    visibility:hidden;
+    line-height:0;
+    height:0;
+}
+
+#response {
+    min-height:70px; 
+    margin:10px; 
+}
+
+#response h3{
+    margin:5px 0;
+}

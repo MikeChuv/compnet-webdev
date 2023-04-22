@@ -76,3 +76,72 @@
     border-style: solid;
     text-align: center;
 }
+
+.text-accent {
+    color: var(--sidebar-active);
+}
+
+.calendar-cell-p {
+    margin: 0.5rem;
+}
+
+
+.form-wrap{
+    padding: 1rem;
+    background-color: var(--quote-bg);
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: 200px 1fr;
+}
+
+
+.form-wrap label {
+    grid-column: 1 / 2;
+    text-align: right;
+    vertical-align: middle;
+    margin: auto 10px;
+}
+
+.form-wrap input {
+    grid-column: 2 / 3;
+    
+    font-size: 1.2rem;
+    background-color: var(--quote-bg);
+    padding: 1rem;
+    margin: 1rem;
+    border-style: solid;
+    border-width: 2px;
+    border-color: var(--sidebar-bg);
+    border-radius: 10px;
+    color: var(--sidebar-fg);
+}
+
+
+.form-wrap select{
+    font-size: 1.2rem;
+    background-color: var(--quote-bg);
+    padding: 1rem;
+    margin: 1rem;
+    border-style: solid;
+    border-width: 2px;
+    border-color: var(--sidebar-bg);
+    border-radius: 10px;
+    color: var(--sidebar-fg);
+}
+
+.form-submit{
+    font-size: 2rem;
+    background-color: var(--quote-bg);
+    padding: 1rem;
+    margin: 1rem;
+    border-style: solid;
+    border-color: var(--sidebar-bg);
+    border-radius: 10px;
+    color: var(--sidebar-fg);
+}
+
+.form-submit:hover {
+    border-color: var(--theme-popup-border);
+    background-color: var(--theme-popup-bg);
+    color: var(--sidebar-active);
+}

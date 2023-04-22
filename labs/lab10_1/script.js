@@ -1,12 +1,13 @@
 
 
 const onLoadHandler = function(){
-    // window.alert("Прветствую Вас!")
+    showCalendar();
+    setInterval(showTime, 1000);
 }
 
-const clockDisplay = document.getElementById("clock")
 
 function showTime(){
+    const clockDisplay = document.getElementById("clock")
     var date = new Date();
     var h = date.getHours();
     var m = date.getMinutes();
@@ -17,28 +18,21 @@ function showTime(){
     s = (s < 10) ? "0" + s : s;
     
     var time = h + ":" + m + ":" + s;
-    clockDisplay.innerText = time;
+    // clockDisplay.innerText = time;
     clockDisplay.textContent = time;
 }
 
-showTime()
-setInterval(showTime, 1000);
 
-
-
-
-
-const today = new Date();
-const currentMonth = today.getMonth();
-const currentYear = today.getFullYear();
 
 const months = ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июнь", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"];
 
-let monthAndYear = document.getElementById("monthAndYear");
-showCalendar(currentMonth, currentYear);
 
-function showCalendar(month, year) {
+function showCalendar() {
+    const today = new Date();
+    const month = today.getMonth();
+    const year = today.getFullYear();
 
+    let monthAndYear = document.getElementById("monthAndYear");
     const firstDay = (new Date(year, month)).getDay() - 1;
     const daysInMonth = (new Date(year, month+1, 0)).getDate();
 
@@ -66,15 +60,80 @@ function showCalendar(month, year) {
             else {
                 let cell = document.createElement("td");
                 let cellText = document.createTextNode(date);
+                let cellTextElem = document.createElement("p");
+                cellTextElem.classList.add("calendar-cell-p")
                 if (date === today.getDate() && year === today.getFullYear() && month === today.getMonth()) {
                     cell.classList.add("bg-info");
+                    cellTextElem.classList.add("text-accent");
                 }
-                cell.appendChild(cellText);
+                cellTextElem.appendChild(cellText);
+                cell.appendChild(cellTextElem);
                 row.appendChild(cell);
                 date++;
             }
         }
-        tbl.appendChild(row);
         if (flag) break;
+        tbl.appendChild(row);
     }
 }
+
+
+
+var ifrm = document.createElement("iframe");
+ifrm.setAttribute("src", "./result_template.html");
+ifrm.setAttribute("name", "formresult");
+content = ifrm.contentWindow
+const form = document.getElementById("BMI-form");
+form.setAttribute("target", "_blank");
+
+function processForm(event){
+
+    console.log(event)
+    // event.preventDefault();
+    const algoInputValue   = document.forms["BMI"]["algo"].value;
+    const heightInputValue = document.forms["BMI"]["height"].value;
+    const massInputValue   = document.forms["BMI"]["mass"].value;
+
+    console.log(algoInputValue);
+    console.log(heightInputValue);
+    console.log(massInputValue);
+
+    let result = 0;
+    paramStr = "location=yes,height=720,width=1280,scrollbars=yes,status=yes";
+    switch (algoInputValue) {
+        case "BMI":
+            result = massInputValue / Math.pow(heightInputValue / 100, 2);
+            console.log(result);
+            try {
+                ifrm.contentDocument.body.prepend("Hello, world!"); 
+            } catch (error) {
+                console.log(error) 
+            }
+            newWindow = window.open("./result_template.html", "formresult", paramStr);
+            break;
+        case "BrIndex":
+            result = heightInputValue * 0.7 - 50;
+            console.log(result);
+            window.open("./result_template.html", "formresult", paramStr);
+            break;
+
+        case "NoorIndex":
+            result = heightInputValue * 0.42;
+            console.log(result);
+            window.open("./result_template.html", "formresult", paramStr);
+            break;
+
+        case "TatIndex":
+            result = heightInputValue - (100 + (heightInputValue - 100) / 20)
+            console.log(result)
+            window.open("./result_template.html", "formresult", paramStr);
+            break;
+    
+        default:
+            break;
+    }
+
+}
+
+
+form.addEventListener('submit', processForm);
