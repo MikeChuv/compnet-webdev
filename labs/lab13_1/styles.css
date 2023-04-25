@@ -33,22 +33,16 @@
     background-color: var(--theme-popup-border);
 }
 
-
-#frame {
-    max-width:620px;
-    width:100%;
-    border:1px solid #ccc;
-    background:#eee;
-    padding:10px;
-} 
+.quiz-wrapper {
+    padding: 1rem;
+    background-color: var(--quote-bg);
+    border-radius: 10px;
+}
 
 #quiz-content {
     margin:0 40px 10px;
+
 } 
-
-input[type=radio] { margin:0 10px 5px -22px; } 
-
-label{margin:0 0 5px;}
 
 #score p { 
     font-size:0.5em; 
@@ -73,4 +67,88 @@ label{margin:0 0 5px;}
 
 #response h3{
     margin:5px 0;
+}
+
+.quiz-result {
+    font-size: 3rem;
+    text-align: center;
+}
+
+#clock {
+    font-size: 1.2rem; 
+    margin: 5px 5px 0 0;
+    padding: 0rem 2rem;
+    color: var(--sidebar-active);
+}
+
+
+#check {
+    margin:0 40px 10px;
+    font-size: 2rem;
+    background-color: var(--quote-bg);
+    padding: 1rem;
+    /* margin: 1rem; */
+    border-style: solid;
+    border-color: var(--sidebar-bg);
+    border-radius: 10px;
+    color: var(--sidebar-fg);
+}
+
+#check:hover {
+    border-color: var(--theme-popup-border);
+    background-color: var(--theme-popup-bg);
+    color: var(--sidebar-active);
+}
+
+
+label {
+	display: flex;
+	cursor: pointer;
+	font-weight: 500;
+	position: relative;
+	overflow: hidden;
+	margin-bottom: 0.375em;
+}
+
+.radio-button {
+    margin:0 10px 5px -22px;
+    position: absolute;
+    left: -9999px;
+
+}
+
+.radio-button:checked + span{
+    background-color: mix(#fff, var(--sidebar-active), 84%);
+    color: var(--sidebar-active);
+    &:before {
+        box-shadow: inset 0 0 0 0.4375em var(--sidebar-active);
+    }
+}
+
+
+
+.quiz-item-span {
+    display: flex;
+    align-items: center;
+    padding: 0.375em 0.75em 0.375em 0.375em;
+    border-radius: 99em;
+    transition: 0.25s ease;
+
+}
+
+.quiz-item-span::before{
+    display: flex;
+    flex-shrink: 0;
+    content: "";
+    background-color: #fff;
+    width: 1.5em;
+    height: 1.5em;
+    border-radius: 50%;
+    margin-right: 0.375em;
+    transition: 0.25s ease;
+    box-shadow: inset 0 0 0 0.125em var(--sidebar-active);
+}
+
+.quiz-item-span:hover{
+    background-color: mix(#fff, var(--sidebar-active), 84%);
 }

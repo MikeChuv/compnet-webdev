@@ -6,6 +6,7 @@
 	<link rel="stylesheet" href="./styles.css">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./script.js"></script>
     <title>Лабораторная работа №13.1</title>
 </head>
 <body>
@@ -38,22 +39,21 @@
                     <div class="realization mainblock">
                         <div class="itemscontainer">
                             <div class="taskitemcontainer">
-                                <h3>Тест на знание </h3>
+                                <h3>Тест</h3>
                                 <div class="item">
+                                    <div class="quiz-wrapper">
+                                        <div id="clock" class="clock"></div>
+                                        <div id="score"><p>Результат: 0 правильных ответов из 0</p></div>
+                                        <h4 id="question">Вопрос</h4>
+                                        <form id="quiz-content">
 
-                                    <div id="score"><p>Результат: 0 правильных ответов из 0</p></div>
-                                    <h2 id="question">Question here</h2>
-                                    <div id="quiz-content">
-
+                                        </form>
+                                        <button id="check" onclick="checkAnswer()">Ответить</button>
+                                        <div id="response">
+                                            <div id="explanation"></div>
+                                        </div>
                                     </div>
-                                    <button id="check" onclick="checkAnswer()">Submit Answer</button>
-                                    <div id="response">
-                                        <div id="explanation"></div>
-                                    </div>
-
                                 </div>
-
-
                             </div>
                         </div>
                     </div>

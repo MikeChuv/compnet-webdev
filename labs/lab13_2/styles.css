@@ -5,3 +5,108 @@
 .sidebar-scrollbox ul li:nth-child(6) {
     color: var(--sidebar-active);
 }
+
+/* 
+    TODO move to common styles
+*/
+.taskitemcontainer {
+    position: relative;
+    /* position: absolute;
+    bottom: 0;
+    top: 0; */
+    display: inline-block;
+    width: 100%;
+    margin: 1rem 0rem;
+    border-radius: 10px;
+    background-color: var(--theme-popup-border);
+}
+
+.taskitemcontainer h3 {
+    padding: 0rem 2rem;
+    margin: 1rem 0rem;
+}
+
+.taskitemcontainer h4 {
+    padding: 0rem 3rem;
+    margin: 1rem 0rem;
+}
+
+.item {
+    margin: 1rem auto;
+    padding: 0rem 1rem;
+    border-radius: 10px;
+    background-color: var(--theme-popup-border);
+}
+
+
+
+
+.menu-wrapper {
+    padding: 1rem;
+    background-color: var(--quote-bg);
+    border-radius: 10px;
+}
+
+
+.main-menu {
+    padding: 0 0.5rem;
+}
+
+.main-menu > div {
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    cursor: pointer;
+}
+
+.submenu {
+    display: block;
+    position: relative;
+
+    border: solid;
+    border-color: var(--sidebar-active);
+    border-width: 3px;
+    border-radius: 3px;
+    color: var(--fg);
+}
+
+.menu-item {
+    position: relative;
+    padding: 0.5rem;
+    margin: 1rem;
+    white-space: nowrap; 
+}
+
+.menu-item span {
+    margin: 1rem;
+    padding: 0.5rem;
+}
+
+
+.item-hidden {
+    display: none;
+}
+
+.inline-item {
+    position: absolute;
+    transform: translate(100%, 0%);
+    right: 0;
+
+    top: -33%;
+}
+
+/* .inline-item div {
+    position: relative;
+    transform: translate(0%, -100%);
+} */
+
+.item-visible {
+    margin-top: 0.5rem;
+    background-color: var(--quote-bg);
+}
+
+
+
+.item-active{
+    color: var(--sidebar-active);
+}

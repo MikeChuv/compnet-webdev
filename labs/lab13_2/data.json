@@ -1,0 +1,51 @@
+[
+    {
+        "title"    : "Файл",
+        "action"   : "fileAction",
+        "children" : [
+            {
+                "title"    : "Открыть",
+                "action"   : "openAction",
+                "children" : []
+            },
+            {
+                "title"    : "Сохранить как...",
+                "action"   : "saveAsAction",
+                "children" : [
+                    {
+                        "title"    : "PNG",
+                        "action"   : "saveAsPNGAction",
+                        "children" : []
+                    },
+                    {
+                        "title"    : "JPEG",
+                        "action"   : "saveAsJPEGAction",
+                        "children" : []
+                    },
+                    {
+                        "title"    : "GIF",
+                        "action"   : "saveAsGIFAction",
+                        "children" : []
+                    }
+                    
+                ]
+            },
+            {
+                "title"    : "Сохранить",
+                "action"   : "saveAction",
+                "children" : []
+            }
+        ]
+    },
+
+    {
+
+        "title"    : "О программе",
+        "action"   : "aboutAction",
+        "children" : [
+
+        ]
+
+    }
+
+]
