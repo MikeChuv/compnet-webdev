@@ -60,17 +60,16 @@
 
 .maincontent {
     position: relative;
-    margin: 1rem;
-    height: 20rem;
+    padding: 1rem;
+    height: 80%;
 }
 
 iframe {
     filter: brightness(80%);
     border-radius: 10px;
-    position: relative;
     top: 0;
     left: 0;
-    width: 100%;
+    /* right: 0; */
     height: 100%;
 }
 

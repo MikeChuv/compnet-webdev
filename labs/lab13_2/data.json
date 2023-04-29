@@ -20,7 +20,13 @@
                     {
                         "title"    : "JPEG",
                         "action"   : "saveAsJPEGAction",
-                        "children" : []
+                        "children" : [
+                            {
+                                "title"    : "JPEG2000",
+                                "action"   : "saveAsJPEG2000Action",
+                                "children" : []
+                            }
+                        ]
                     },
                     {
                         "title"    : "GIF",

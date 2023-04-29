@@ -1,4 +1,5 @@
 
+let globalDate;
 
 const onLoadHandler = function(){
     showCalendar();
@@ -8,16 +9,22 @@ const onLoadHandler = function(){
 
 function showTime(){
     const clockDisplay = document.getElementById("clock")
-    var date = new Date();
-    var h = date.getHours();
-    var m = date.getMinutes();
-    var s = date.getSeconds();
+    let date = new Date();
+    let h = date.getHours();
+    let m = date.getMinutes();
+    let s = date.getSeconds();
+
+    let localDate = date.getDate();
+    if (localDate != globalDate) {
+        showCalendar();
+        globalDate = localDate;
+    }
     
     h = (h < 10) ? "0" + h : h;
     m = (m < 10) ? "0" + m : m;
     s = (s < 10) ? "0" + s : s;
     
-    var time = h + ":" + m + ":" + s;
+    let time = h + ":" + m + ":" + s;
     // clockDisplay.innerText = time;
     clockDisplay.textContent = time;
 }
@@ -28,6 +35,7 @@ const months = ["Январь", "Февраль", "Март", "Апрель", "�
 
 
 function showCalendar() {
+    console.log("showCalendar")
     const today = new Date();
     const month = today.getMonth();
     const year = today.getFullYear();
@@ -79,17 +87,33 @@ function showCalendar() {
 
 
 
-var ifrm = document.createElement("iframe");
-ifrm.setAttribute("src", "./result_template.html");
-ifrm.setAttribute("name", "formresult");
-content = ifrm.contentWindow
+
 const form = document.getElementById("BMI-form");
-form.setAttribute("target", "_blank");
+
+
+function getBMIDescr(BMIvalue){
+    if (BMIvalue <= 16) {
+        return "Выраженный дефицит массы тела";
+    } else if(BMIvalue > 16 && BMIvalue < 18.5) {
+        return "Недостаточная (дефицит) масса тела";
+    } else if(BMIvalue > 18.5 && BMIvalue < 25) {
+        return "Норма";
+    } else if(BMIvalue > 25 && BMIvalue < 30) {
+        return "Избыточная масса тела (предожирение)"
+    } else if(BMIvalue > 30 && BMIvalue < 35) {
+        return "Ожирение первой степени"
+    } else if (BMIvalue > 35 && BMIvalue < 40) {
+        return "Ожирение второй степени"
+    } else {
+        return "Ожирение третьей степени (морбидное)"
+    }
+}
+
 
 function processForm(event){
 
     console.log(event)
-    // event.preventDefault();
+    event.preventDefault();
     const algoInputValue   = document.forms["BMI"]["algo"].value;
     const heightInputValue = document.forms["BMI"]["height"].value;
     const massInputValue   = document.forms["BMI"]["mass"].value;
@@ -99,34 +123,44 @@ function processForm(event){
     console.log(massInputValue);
 
     let result = 0;
-    paramStr = "location=yes,height=720,width=1280,scrollbars=yes,status=yes";
     switch (algoInputValue) {
         case "BMI":
             result = massInputValue / Math.pow(heightInputValue / 100, 2);
-            console.log(result);
-            try {
-                ifrm.contentDocument.body.prepend("Hello, world!"); 
-            } catch (error) {
-                console.log(error) 
+
+            newWindow = window.open("./result_template.html");
+            newWindow.onload = function() {
+                elem = newWindow.document.getElementById("result")
+                elem.innerHTML = `<p>Индекс массы тела: ${result}</p><p>${getBMIDescr(result)}</p>`
             }
-            newWindow = window.open("./result_template.html", "formresult", paramStr);
             break;
         case "BrIndex":
             result = heightInputValue * 0.7 - 50;
             console.log(result);
-            window.open("./result_template.html", "formresult", paramStr);
+            newWindow = window.open("./result_template.html");
+            newWindow.onload = function() {
+                elem = newWindow.document.getElementById("result")
+                elem.innerHTML = `<p>Индекс Брейтмана (нормальный вес для роста ${heightInputValue}): ${result}</p>`
+            }
             break;
 
         case "NoorIndex":
             result = heightInputValue * 0.42;
             console.log(result);
-            window.open("./result_template.html", "formresult", paramStr);
+            newWindow = window.open("./result_template.html");
+            newWindow.onload = function() {
+                elem = newWindow.document.getElementById("result")
+                elem.innerHTML = `<p>Индекс Ноордена (нормальный вес для роста ${heightInputValue}): ${result}</p>`
+            }
             break;
 
         case "TatIndex":
             result = heightInputValue - (100 + (heightInputValue - 100) / 20)
             console.log(result)
-            window.open("./result_template.html", "formresult", paramStr);
+            newWindow = window.open("./result_template.html");
+            newWindow.onload = function() {
+                elem = newWindow.document.getElementById("result")
+                elem.innerHTML = `<p>Индекс Татоня (номальный вес для роста ${heightInputValue}): ${result}</p>`
+            }
             break;
     
         default:
